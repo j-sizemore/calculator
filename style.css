@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 3.37in;
+    border: black 2pt solid;
+}
+
+.display {
+    margin: 0.125in;
+    height: 0.88in;
+    border: black 2pt solid;
+}
+
+.button-container {
+    margin: 0.125in;
+    height: 3.25in;
+    border: black 2pt solid;
+}
+
+.button-row {
+    display: flex;
+    align-items: stretch;
+}
+
+.button {
+    margin: 0.125in;
+    /* height: 0.5in; */
+    line-height: 0.5in;
+    border: black 2pt solid;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.flexgrow2 {
+    flex-grow: 2;
+}
+
+.flexgrow3 {
+    flex-grow: 3;
+}
+
+.yellow {
+    background-color: gold;
+    color: white;
+}
+
+.red {
+    background-color: maroon;
+    color: white;
+}
+
+.green {
+    background-color: forestgreen;
+    color: white;
+}
