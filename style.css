@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    font-family: monospace;
+    font-size: 16pt;
 }
 
 .container {
@@ -13,6 +15,11 @@
     border: black 4pt solid;
     margin-bottom: 12px;
     height: 84px;
+    padding: 12px;
+    font-size: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .button-container {
@@ -38,8 +45,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: monospace;
-    font-size: 16pt;
 }
 
 .button-wide {
