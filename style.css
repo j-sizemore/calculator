@@ -2,17 +2,15 @@
     box-sizing: border-box;
 }
 
-div {
-    outline: red 2pt solid;
-}
-
 .container {
     display: inline-flex;
     flex-direction: column;
+    border: black 4pt solid;
     padding: 12px;
 }
 
 .display {
+    border: black 4pt solid;
     margin-bottom: 12px;
     height: 84px;
 }
@@ -20,6 +18,7 @@ div {
 .button-container {
     display: inline-flex;
     flex-direction: column;
+    border: black 4pt solid;
 }
 
 .button-row {
@@ -32,10 +31,15 @@ div {
 }
 
 .button {
-    outline: blue 2pt solid;
+    border: black 2pt solid;
     margin: 12px;
     height: 50px;
     width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 16pt;
 }
 
 .button-wide {
