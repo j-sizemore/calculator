@@ -7,37 +7,24 @@ div {
 }
 
 .container {
-    width: 3.375in;
-    padding: 0.125in;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 12px;
 }
 
 .display {
-    margin-bottom: 0.125in;
-    height: 0.875in;
+    margin-bottom: 12px;
+    height: 84px;
 }
 
 .button-container {
-    height: 3.375in;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
 }
 
 .button-row {
     outline: none;
     display: flex;
-    flex-grow: 1;
-}
-
-.nopad {
-    padding: 0;
-}
-
-#equals-row {
-    flex-grow: 2;
-}
-
-#equals-container {
-    flex-grow: calc(1 / 3);
 }
 
 .multi-row {
@@ -46,12 +33,16 @@ div {
 
 .button {
     outline: blue 2pt solid;
-    flex-grow: 1;
-    margin: 0.125in;
+    margin: 12px;
+    height: 50px;
+    width: 50px;
 }
 
 .button-wide {
-    flex-basis: 0.25in;
-    flex-grow: 2;
+    width: 124px;
+}
+
+.button-tall {
+    height: 124px;
 }
 
