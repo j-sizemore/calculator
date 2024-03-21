@@ -11,7 +11,7 @@
     padding: 12px;
 }
 
-.display {
+#display {
     border: black 4pt solid;
     margin-bottom: 12px;
     height: 84px;
