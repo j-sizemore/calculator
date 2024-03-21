@@ -1,7 +1,7 @@
-const add = (a, b) => a + b;
-const subtract = (a, b) => a - b;
-const multiply = (a, b) => a * b;
-const divide = (a, b) => a / b;
+const add = (a, b) => Math.round((a + b) * 1e+10) * 1e-10;
+const subtract = (a, b) => Math.round((a - b) * 1e+10) * 1e-10;
+const multiply = (a, b) => Math.round((a * b) * 1e+10) * 1e-10;
+const divide = (a, b) => Math.round((a / b) * 1e+10) * 1e-10;
 
 const operate = (operator, a, b) => {
     let result;
@@ -36,7 +36,7 @@ const calculatorEntry = (entry) => {
 
     if (entry === "CE" || entry === "Delete") {
 
-        newDisplay = ""
+        newDisplay = "";
 
     } else if (entry === "←" || entry === "Backspace") { 
 
@@ -115,7 +115,9 @@ const calculatorEntry = (entry) => {
 const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
-    button.addEventListener('click', calculatorEntry(button.textContent));
+    button.addEventListener('click', () => {
+        calculatorEntry(button.textContent);
+    });
 });
 document.addEventListener('keydown', (event) => {
 	calculatorEntry(event.key);
