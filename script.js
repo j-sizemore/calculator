@@ -1,3 +1,5 @@
+const MAX_DIGITS = 14;
+
 const add = (a, b) => Math.round((a + b) * 1e+10) * 1e-10;
 const subtract = (a, b) => Math.round((a - b) * 1e+10) * 1e-10;
 const multiply = (a, b) => Math.round((a * b) * 1e+10) * 1e-10;
@@ -58,8 +60,13 @@ const calculatorEntry = (entry) => {
         ){
             newDisplay = currentDisplay + "0.";
         } else if (
-            (numOperands === 1 && expression[0].indexOf(".") === -1)
-            || (numOperands === 2 && expression[2].indexOf(".") === -1)
+            (numOperands === 1 
+                && expression[0].indexOf(".") === -1
+                && expression[0].length < MAX_DIGITS
+            ) || (numOperands === 2 
+                && expression[2].indexOf(".") === -1
+                && expression[2].length < MAX_DIGITS
+            )
         ){
             newDisplay = currentDisplay + ".";
         } else {
@@ -68,9 +75,17 @@ const calculatorEntry = (entry) => {
 
     } else if (entry.search(/[\d]/) > -1) { // digit
 
-        newDisplay = (numOperands === 0 || currentDisplay === "0") ? 
-            entry : 
-            currentDisplay + entry;
+        if (numOperands === 0 || currentDisplay === "0") {
+            newDisplay = entry;
+        } else if (
+            (numOperands === 1 && expression[0].length < MAX_DIGITS)
+            || (numOperands === 1 && numOperators === 1)
+            || (numOperands === 2 && expression[2].length < MAX_DIGITS)
+        ){
+            newDisplay = currentDisplay + entry;
+        } else {
+            newDisplay = currentDisplay;
+        }
 
     } else if (entry.search(/[+\-*/]/) > -1) { // operator
 
@@ -79,11 +94,18 @@ const calculatorEntry = (entry) => {
         } else if (numOperators === 0) {
             newDisplay = currentDisplay + " " + entry + " ";
         } else if (numOperands === 2 && numOperators === 1) {
-            newDisplay = operate(
+            // check for overflow in resultant evaluation
+            let result = operate(
                 expression[1], 
                 +expression[0], 
                 +expression[2]
-            ) + " " + entry + " ";
+            );
+            if (result.length > MAX_DIGITS) {
+                result = (+result).toExponential();
+                if (result.length > MAX_DIGITS) 
+                result = (+result).toExponential(MAX_DIGITS - 4);
+            }
+            newDisplay = result + " " + entry + " ";
         } else {
             newDisplay = currentDisplay;
         }
@@ -95,17 +117,23 @@ const calculatorEntry = (entry) => {
         } else if (numOperands === 1) {
             newDisplay = expression[0];
         } else {
+            // check for overflow in resultant evaluation
             newDisplay = operate(
                 expression[1], 
                 +expression[0], 
                 +expression[2]
             );
+            if (newDisplay.length > MAX_DIGITS) {
+                newDisplay = (+newDisplay).toExponential();
+                if (newDisplay.length > MAX_DIGITS) 
+                newDisplay = (+newDisplay).toExponential(MAX_DIGITS - 4);
+            }
         }
 
     } else {
 
         console.error("Unexpected button value: " + entry);
-        newDisplay = "ERR";
+        newDisplay = currentDisplay;
 
     }    
 
