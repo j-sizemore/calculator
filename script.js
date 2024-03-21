@@ -82,6 +82,12 @@ buttons.forEach(button => {
                 newDisplay = "0 " + entry + " ";
             } else if (numOperators === 0) {
                 newDisplay = currentDisplay + " " + entry + " ";
+            } else if (numOperands === 2 && numOperators === 1) {
+                newDisplay = operate(
+                    expression[1], 
+                    +expression[0], 
+                    +expression[2]
+                ) + " " + entry + " ";
             } else {
                 newDisplay = currentDisplay;
             }
