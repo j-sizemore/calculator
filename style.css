@@ -3,6 +3,18 @@
     font-family: monospace;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    --base-color: #090909;
+    --contrast-color: #fdfcf8;
+    --purple: #9e0092;
+    --teal: #16a596;
+    --yellow: #ffad00;
+    --orange: #d96627;
+    --red: #fd3a69;
+}
+
 .container {
     --pad-size: 12px;
     --button-size: 50px;
@@ -12,12 +24,15 @@
     --button-font-size: 16pt;
     display: inline-flex;
     flex-direction: column;
-    border: black var(--container-border-size) solid;
+    border: var(--base-color) var(--container-border-size) solid;
     padding: var(--pad-size);
+    margin-top: calc(2 * var(--pad-size));
+    align-self: center;
+    background-color: var(--base-color);
 }
 
 #display {
-    border: black var(--container-border-size) solid;
+    border: var(--purple) var(--container-border-size) solid;
     margin-bottom: var(--pad-size);
     height: calc(
         var(--button-size) 
@@ -35,12 +50,16 @@
     align-items: flex-end;
     justify-content: flex-end;
     text-align: right;
+    background-color: var(--contrast-color);
+    color: var(--base-color);
+    box-shadow: inset 2px 2px 5px #333333;
 }
 
 .button-container {
     display: inline-flex;
     flex-direction: column;
-    border: black var(--container-border-size) solid;
+    border: var(--purple) var(--container-border-size) solid;
+    background-color: var(--base-color);
 }
 
 .button-row {
@@ -53,7 +72,6 @@
 }
 
 .button {
-    border: black var(--button-border-size) solid;
     margin: var(--pad-size);
     height: var(--button-size);
     width: var(--button-size);
@@ -61,6 +79,9 @@
     align-items: center;
     justify-content: center;
     font-size: var(--button-font-size);
+    background-color: var(--purple);
+    color: var(--contrast-color);
+    box-shadow: inset 2px 2px 5px #333333;
 }
 
 .button-wide {
@@ -71,3 +92,18 @@
     height: 124px;
 }
 
+#backspace-button {
+    background-color: var(--orange);
+}
+
+#clear-button {
+    background-color: var(--red);
+}
+
+.operator-button {
+    background-color: var(--yellow);
+}
+
+#equals-button {
+    background-color: var(--teal);
+}

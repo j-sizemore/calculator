@@ -132,7 +132,6 @@ const calculatorEntry = (entry) => {
 
     } else {
 
-        console.error("Unexpected button value: " + entry);
         newDisplay = currentDisplay;
 
     }    
