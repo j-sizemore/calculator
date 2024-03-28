@@ -3,16 +3,22 @@
     font-family: monospace;
 }
 
+html {
+    height: 100%;
+    background-image: linear-gradient(180deg, #dde7ee, #677f9f);
+}
+
 body {
     display: flex;
     flex-direction: column;
-    --base-color: #090909;
-    --contrast-color: #fdfcf8;
-    --purple: #9e0092;
-    --teal: #16a596;
-    --yellow: #ffad00;
-    --orange: #d96627;
-    --red: #fd3a69;
+    --base-color: #acada2;
+    --contrast-color: #fec950;
+    --border-color: #635341;
+    --equals-color: #5c7cb4;
+    --operators-color: #362214;
+    --backspace-color: #664147;
+    --clear-color: #920b0b;
+    --display-color: #bad2d6;
 }
 
 .container {
@@ -25,14 +31,17 @@ body {
     display: inline-flex;
     flex-direction: column;
     border: var(--base-color) var(--container-border-size) solid;
-    padding: var(--pad-size);
+    padding: calc(2 * var(--pad-size)); /*var(--pad-size);*/
     margin-top: calc(2 * var(--pad-size));
     align-self: center;
     background-color: var(--base-color);
+    box-shadow: 4px 4px 10px #333333, -4px -4px 10px #333333,
+                4px -4px 10px #333333, -4px 4px 10px #333333;
+    border-radius: 10px;
 }
 
 #display {
-    border: var(--purple) var(--container-border-size) solid;
+    border: var(--border-color) var(--container-border-size) solid;
     margin-bottom: var(--pad-size);
     height: calc(
         var(--button-size) 
@@ -50,16 +59,17 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
     text-align: right;
-    background-color: var(--contrast-color);
-    color: var(--base-color);
-    box-shadow: inset 2px 2px 5px #333333;
+    background-color: var(--display-color);
+    color: var(--border-color);
+    box-shadow: inset 2px 2px 5px #333333, 2px 2px 5px #333333;
 }
 
 .button-container {
     display: inline-flex;
     flex-direction: column;
-    border: var(--purple) var(--container-border-size) solid;
+    border: var(--border-color) var(--container-border-size) solid;
     background-color: var(--base-color);
+    box-shadow: inset 2px 2px 5px #333333, 2px 2px 5px #333333;
 }
 
 .button-row {
@@ -79,9 +89,10 @@ body {
     align-items: center;
     justify-content: center;
     font-size: var(--button-font-size);
-    background-color: var(--purple);
+    background-color: var(--border-color);
     color: var(--contrast-color);
-    box-shadow: inset 2px 2px 5px #333333;
+    box-shadow: 0px 2px 5px #333333;
+    border-radius: 10px;
 }
 
 .button-wide {
@@ -93,17 +104,17 @@ body {
 }
 
 #backspace-button {
-    background-color: var(--orange);
+    background-color: var(--backspace-color);
 }
 
 #clear-button {
-    background-color: var(--red);
+    background-color: var(--clear-color);
 }
 
 .operator-button {
-    background-color: var(--yellow);
+    background-color: var(--operators-color);
 }
 
 #equals-button {
-    background-color: var(--teal);
+    background-color: var(--equals-color);
 }
